@@ -17,6 +17,12 @@ Un bot de Discord moderno diseñado para vincular perfiles de **Geometry Dash** 
 
 ---
 
+## 🧰 Tecnologías
+
+Node.js · discord.js v14 · MongoDB Atlas · Mongoose · axios · dotenv
+
+---
+
 ## 🛠️ Requisitos previos
 
 Antes de comenzar, necesitarás tener instalado:
@@ -32,7 +38,7 @@ Antes de comenzar, necesitarás tener instalado:
 ### 1. Clonar el repositorio
 Descarga el código o clona el repositorio en tu máquina local:
 ```bash
-git clone https://github.com/strwballz/Gd_bot.git
+git clone https://github.com/IvanDWright/Gd_bot.git
 cd Gd_bot
 ```
 
@@ -43,7 +49,7 @@ npm install
 ```
 
 ### 3. Configurar las variables de entorno
-Crea un archivo `.env` en la raíz del proyecto (o edita el ya existente) y define los siguientes valores:
+Copia la plantilla `.env.example` a un archivo `.env` en la raíz del proyecto (`cp .env.example .env`, o `copy .env.example .env` en Windows) y completa tus propios valores:
 
 ```env
 CLIENT_ID=TU_CLIENT_ID_DE_DISCORD
@@ -51,13 +57,21 @@ CLIENT_TOKEN=TU_TOKEN_DE_BOT_DE_DISCORD
 MONGO_URI=mongodb://usuario:contraseña@servidor:puerto/base_de_datos?opciones
 ```
 
+> [!WARNING]
+> Nunca subas tu `.env` ni pegues tu URI de MongoDB o tu token de Discord en el código. Si una credencial se expone por error, cámbiala de inmediato en MongoDB Atlas o en el Discord Developer Portal.
+
 > [!IMPORTANT]
 > Si experimentas errores de DNS (`ECONNREFUSED` o `querySrv` en Windows) usando la URI de tipo `mongodb+srv://`, utiliza la URI directa `mongodb://` que contiene los shards de conexión explícitos con el parámetro `replicaSet` correcto de tu cluster de MongoDB Atlas.
 
 ### 4. Registrar los comandos en Discord
 Para que los comandos de barra (`/`) aparezcan en tus servidores de Discord, ejecuta el script de registro:
 ```bash
-node deploy-commands.js
+npm run deploy-commands
+```
+
+### 5. Iniciar el bot
+```bash
+npm start
 ```
 
 ---
@@ -92,6 +106,7 @@ Gd_bot/
 ├── models/             # Esquemas de la base de datos (Mongoose)
 │   └── Profile.js      # Modelo de perfil de usuario (userId, accountID, playerID, userName)
 ├── .env                # Variables de entorno secretas (no se sube a Git)
+├── .env.example        # Plantilla de variables de entorno (sin valores reales)
 ├── deploy-commands.js  # Script para registrar comandos de barra en Discord
 ├── index.js            # Punto de entrada principal de la aplicación
 ├── robtopapi.js        # Módulo de integración con la API de RobTop (Geometry Dash)

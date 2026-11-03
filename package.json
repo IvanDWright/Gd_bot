@@ -1,7 +1,7 @@
 {
   "name": "gd_bot",
   "version": "1.0.0",
-  "description": "Es un bot de gd para pepe",
+  "description": "Discord bot that links Geometry Dash profiles to Discord accounts and shows server leaderboards (Node.js, discord.js, MongoDB).",
   "homepage": "https://github.com/strwballz/Gd_bot#readme",
   "bugs": {
     "url": "https://github.com/strwballz/Gd_bot/issues"
@@ -15,7 +15,9 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "deploy-commands": "node deploy-commands.js",
+    "test":"echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "axios": "^1.17.0",
